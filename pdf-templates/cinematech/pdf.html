@@ -1,0 +1,669 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display" rel="stylesheet"> -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Cinematech</title>
+
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Lato:wght@100);
+    @import url(https://fonts.googleapis.com/css?family=Playfair+Display:wght@100);
+
+    body {
+      font-family: 'Lato';
+      font-weight: inherit;
+    }
+
+    .page2-text-first,
+    .contact-information {
+      font-family: 'Playfair Display';
+      font-weight: inherit;
+    }
+
+
+    @media print {
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 410mm;
+        height: 300mm;
+      }
+
+      body {
+        margin: 0;
+        padding: 20px 12px;
+        padding-top: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 12px;
+
+      }
+
+
+      .content-container {
+        padding: 28px 20px;
+      }
+
+      .header {
+        display: flex;
+      }
+
+      .content-container-page1 {
+        display: flex;
+      }
+
+      .saltopagina {
+        page-break-after: always;
+      }
+
+      .logo {
+        margin-left: 45px;
+      }
+
+      .cinematech-title {
+        flex-direction: column;
+        margin-left: 45px;
+        margin-right: 65px;
+        width: 100%;
+      }
+
+      .cinematech-title-page1 {
+        flex-direction: column;
+        margin-left: 25px;
+        margin-right: 65px;
+        width: 100%;
+      }
+
+      .cinematech-title-first-item {
+        height: 45px;
+      }
+
+      .cinematech-title-second-item {
+        /* border: solid; */
+        height: 950px;
+        border-width: thin;
+      }
+
+      .page1-data {
+        width: 100%;
+        display: flex;
+        margin-left: 45px;
+      }
+
+      .page1-data-first-item {
+        width: 100%;
+        font-size: 35px;
+      }
+
+      .page1-data-second-item {
+        width: 30%;
+        font-size: 35px;
+      }
+
+      .page-break {
+        page-break-after: always;
+      }
+
+      .footer {
+        display: flex;
+        margin-left: 45px;
+        font-weight: lighter;
+      }
+
+      .footer-company-name {
+        width: 60.33%;
+      }
+
+      .footer-company-url {
+        width: 80.33%;
+      }
+
+      .footer-id {
+        width: 36.33%;
+      }
+
+      .page2-text {
+
+        margin-left: 40px;
+        width: 100%;
+      }
+
+      .page2-first-column p {
+        width: 100%;
+      }
+
+      .page2-second-column {
+        width: 50%;
+        margin-top: 170px;
+        margin-right: 50px;
+
+      }
+
+      .page2-text-first,
+      .page2-text-second {
+        font-size: 55px;
+      }
+
+      .page2-text-third,
+      .page2-text-fourth {
+        font-size: 35px;
+      }
+
+      .page2-text-fifth {
+        color: #2F5597;
+        font-size: 35px;
+      }
+
+      .page2-column-section {
+        display: flex;
+        width: 100%;
+        margin-top: -70px;
+      }
+
+      .page3-column-section {
+        display: flex;
+        flex-direction: row;
+        margin: 35px;
+      }
+
+      .page3-first-column {
+        /* border: solid; */
+        width: 60%;
+        height: 820px;
+        margin-right: 35px;
+        /* border-width: thin; */
+      }
+
+      .page3-second-column {
+        /* border: solid; */
+        width: 50%;
+        /* border-width: thin; */
+        padding: 15px;
+      }
+
+      .page3-content-text {
+        display: flex;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 14px;
+      }
+
+      .page4 .header {
+        display: flex;
+      }
+
+      /* .page4 .cinematech-title {
+        width: 90%;
+        margin-top: 100px;
+      } */
+      
+      .page4 .cinematech-title1{
+        width: 90%;
+        margin-top: 83px;
+        margin-left: 4%;
+        margin-right: 4%;
+      }
+
+      .page4 .cinematech-title2,
+      .page4 .cinematech-title3,
+      .page4 .cinematech-title4 {
+        width: 90%;
+        margin-top: 2%;
+        margin-left: 4%;
+        margin-right: 4%;
+      }
+
+      .page4 .cinematech-title-first-item {
+        /* border: solid; */
+        height: 100px;
+        /* border-width: thin; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+      }
+
+      .content-container-page4 {
+        margin: 40px;
+      }
+
+      .page4-row-section {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page4-first-row {
+        display: flex;
+        margin-bottom: 60px;
+      }
+
+      .page4-first-column {
+        width: 100%;
+        margin-right: 30px;
+      }
+
+      .page4-first-item-first-row {
+        /* border: solid; */
+        /* border-width: thin; */
+        height: 550px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 0px;
+      }
+
+      .page4-second-column {
+        height: 550px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page4-second-item-first-row {
+        /* border: solid; */
+        /* border-width: thin; */
+        height: 50%;
+        margin-bottom: 30px;
+      }
+
+      .page4-third-item-first-row {
+        /* border: solid; */
+        /* border-width: thin; */
+        height: 50%;
+      }
+
+      .page4-second-row {
+        display: flex;
+        height: 225px;
+      }
+
+      .page4-first-item-second-row,
+      .page4-second-item-second-row,
+      .page4-third-item-second-row {
+        /* border: solid; */
+        width: 50%;
+        /* border-width: thin; */
+        margin-right: 30px;
+      }
+      .page4-third-item-second-row{
+        padding: 10px;
+      }
+      
+      .page4-first-item-second-row,
+      .page4-second-item-second-row{
+        font-size: 24px;
+      };
+
+      .page4-fourth-item-second-row {
+        /* border: solid; */
+        width: 50%;
+        /* border-width: thin; */
+      }
+
+      .page4-content-text {
+        display: flex;
+        justify-content: center;
+        font-size: 24px;
+        /* margin-bottom: 14px; */
+      }
+
+      .page5 .header {
+        display: flex;
+      }
+
+      .page5 .cinematech-title {
+        width: 90%;
+        margin-top: 3%;
+        margin-left: 4%;
+        margin-right: 4%;
+      }
+
+      .page5 .cinematech-title-first-item {
+        border: solid;
+        height: 100px;
+        border-width: thin;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+      }
+
+      .page5-content-text {
+        display: flex;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 14px;
+      }
+
+      .content-container-page5 {
+        margin: 40px;
+      }
+
+      .page5-row-section {
+        display: flex;
+        height: 800px;
+      }
+
+      .page5-first-item,
+      .page5-second-item,
+      .page5-third-item,
+      .page5-fourth-item {
+        border: solid;
+        width: 50%;
+        border-width: thin;
+        margin-right: 30px;
+      }
+
+      .page5-fourth-item {
+        margin-right: 0px;
+      }
+
+      .page6 .header {
+        display: flex;
+      }
+
+      .page6 .cinematech-title {
+        width: 90%;
+        margin-top: 66px;
+      }
+
+      .page6 .cinematech-title-first-item {
+        border: solid;
+        height: 100px;
+        border-width: thin;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+      }
+
+      .content-container-page6 {
+        margin: 40px;
+      }
+
+      .page6-column-section {
+        height: 900px;
+        display: flex;
+        width: 100%;
+      }
+
+      .page6-first-column,
+      .page6-second-column,
+      .page6-third-column {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page6-first-column-first-item,
+      .page6-first-column-second-item,
+      .page6-first-column-third-item,
+      .page6-second-column-first-item,
+      .page6-second-column-second-item,
+      .page6-second-column-third-item,
+      .page6-third-column-first-item,
+      .page6-third-column-second-item,
+      .page6-third-column-third-item {
+        width: 100%;
+        height: 100%;
+      }
+
+      .page6-first-column-first-item {
+        border: solid;
+        border-width: thin;
+        font-size: 25px;
+      }
+
+
+      .page7 .header {
+        display: flex;
+      }
+
+      .page7 .cinematech-title {
+        width: 90%;
+        margin-top: 66px;
+      }
+
+      .page7 .cinematech-title-first-item {
+        border: solid;
+        height: 100px;
+        border-width: thin;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+      }
+
+      .content-container-page7 {
+        margin: 40px;
+      }
+
+      .page7-column-section {
+        height: 900px;
+        display: flex;
+        width: 100%;
+      }
+
+      .page7-first-column,
+      .page7-second-column {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page7-first-column {
+        margin-right: 30px;
+      }
+
+      .page7-first-column-first-item,
+      .page7-first-column-second-item,
+      .page7-second-column-first-item,
+      .page7-second-column-second-item {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 20px;
+      }
+
+      .page7-first-column-first-item {
+        border: solid;
+        border-width: thin;
+        font-size: 25px;
+        padding-left: 15px;
+      }
+
+      .page8 .header {
+        display: flex;
+      }
+
+      .page8 .cinematech-title {
+        width: 90%;
+        margin-top: 60px;
+      }
+
+      .page8 .cinematech-title-first-item {
+        border: solid;
+        height: 100px;
+        border-width: thin;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+      }
+
+      .content-container-page8 {
+        margin: 40px;
+      }
+
+      .page8-column-section {
+        height: 900px;
+        display: flex;
+        width: 100%;
+      }
+
+      .page8-first-column,
+      .page8-second-column {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page8-first-column {
+        margin-right: 30px;
+      }
+
+      .page8-first-column-first-item,
+      .page8-first-column-second-item,
+      .page8-second-column-first-item,
+      .page8-second-column-second-item {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 20px;
+      }
+
+      .page8-first-column-first-item {
+        font-size: 24px;
+      }
+
+      .page8-first-column-first-item ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .page8-second-column-second-item {
+        font-size: 24px;
+        padding-left: 15px;
+      }
+
+      .page9 .header {
+        display: flex;
+      }
+
+      .page9 .cinematech-title {
+        width: 90%;
+        margin-top: 60px;
+      }
+
+      .page9 .cinematech-title-first-item {
+        border: solid;
+        height: 100px;
+        border-width: thin;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+      }
+
+      .content-container-page9 {
+        margin: 40px;
+      }
+
+      .page9-column-section {
+        height: 900px;
+        display: flex;
+        width: 100%;
+      }
+
+      .page9-first-column,
+      .page9-second-column {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page9-first-column {
+        margin-right: 30px;
+      }
+
+      .page9-first-column-first-item,
+      .page9-first-column-second-item,
+      .page9-second-column-first-item,
+      .page9-second-column-second-item {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 20px;
+      }
+
+      .page9-first-column-first-item {
+        font-size: 24px;
+      }
+
+      .page9-first-column-first-item ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .content-container-page10 {
+        margin: 40px;
+        margin-top: 120px;
+      }
+
+      .contact-information-section a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .contact-information-section p {
+        font-size: 29px;
+      }
+
+      .contact-information {
+        font-size: 85px;
+      }
+
+      .summay-content {
+        margin: 15px;
+        width: 100%;
+        font-size: 17px;
+      }
+
+      .summay-content h2 {
+        margin-bottom: -10px;
+      }
+
+      .summay-content span {
+        font-weight: 600;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page1">
+    {{ cinematechContentPage1 }}
+  </div>
+  <!-- <div class="page2">
+    {{ cinematechContentPage2 }}
+  </div> -->
+  <div class="page3">
+    {{ cinematechContentPage3 }}
+  </div>
+  <div class="page4">
+    {{ cinematechContentPage4 }}
+  </div>
+  <div class="page5">
+    {{ cinematechContentPage5 }}
+  </div>
+  <!-- <div class="page6">
+    {{ cinematechContentPage6 }}
+  </div> -->
+  <!-- <div class="page7">
+    {{ cinematechContentPage7 }}
+  </div> -->
+  <!-- <div class="page8">
+    {{ cinematechContentPage8 }}
+  </div> -->
+  <!-- <div class="page9">
+    {{ cinematechContentPage9 }}
+  </div>-->
+  <div class="page10">
+    {{ cinematechContentPage10 }}
+  </div>
+</body>
+
+</html>
