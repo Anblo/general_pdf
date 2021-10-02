@@ -1,15 +1,18 @@
 import fs from 'fs';
 import path from 'path';
 import puppeteer from 'puppeteer';
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
-// const __dirname = 'D:/WORK/ThreeKit/General-PDF/pdf-templates';
 
+
+let localDirectoryName = path.dirname(new URL(import.meta.url).pathname);
+localDirectoryName = localDirectoryName.includes('project--cinematech') 
+? localDirectoryName.substr(1)
+: localDirectoryName;
 
 export const getTemplate = template => {
   return new Promise(resolve => {
     if (!template) reject();
     const html = fs.readFileSync(
-      path.join(__dirname, `/${template}`, 'pdf.html'),
+      path.join(localDirectoryName, `/${template}`, 'pdf.html'),
       'utf8'
     );
     resolve(html);
@@ -74,7 +77,7 @@ const generatePdfContentCinematechPage2 = data => {
 const generateContentPage2 = data => {
   const headerPage2 = `<div class="header">
   <div class="cinematech-logo">
-    <img class="logo" src="https://costarides.idoagency.com/images/cinematech-email-logo1618.png" alt="qcab"
+    <img class="logo" src="${data.companyLogo}" alt="qcab"
       width="85" height="130" />
   </div>
   <div class="cinematech-title">
@@ -103,7 +106,7 @@ const generateContentPage2 = data => {
            Architectural Digest and the New York Times.</p>
        </div>
        <div class="page2-second-column">
-         <img class="page2-image" src="https://costarides.idoagency.com/images/image%20page%202.png" alt="qcab"
+         <img class="page2-image" src="${data.partnersLogos}" alt="qcab"
            width="360" height="390" />
        </div>
      </div>
@@ -130,7 +133,7 @@ const generateContentPage3 = (data, uiModel) => {
 
   const headerPage3 = `<div class="header">
   <div class="cinematech-logo">
-    <img class="logo" src="https://costarides.idoagency.com/images/cinematech-email-logo1618.png" alt="qcab"
+    <img class="logo" src="${data.companyLogo}" alt="qcab"
       width="85" height="130" />
   </div>
   <div class="cinematech-title">
@@ -160,7 +163,7 @@ const generateContentPage3 = (data, uiModel) => {
       <p>
       <h2>${sumary.row}</h2><br/>
       <span>MODEL1: </span>${sumary.model}<br/>
-      <span>NUMBER OF ITEMS: </span>${sumary.seats}<br/>
+      <span>NUMBER OF SEATS: </span>${sumary.seats}<br/>
       <span>SEAT CUSTOMIZATION: </span>${sumary.material}<br/>
       <span>CUSTOMIZATION: </span>${sumary.customization}<br/>
       <span>ADD ONS: </span>${sumary.addOns}<br/>
@@ -196,7 +199,7 @@ const generateContentPage4 = (data, uiModel) => {
   const Rowinformation = (row, i, length) =>
     `<div class="header">
     <div class="cinematech-logo">
-      <img class="logo" src="https://costarides.idoagency.com/images/cinematech-email-logo1618.png" alt="qcab"
+      <img class="logo" src="${data.companyLogo}" alt="qcab"
         width="85" height="130" />
     </div>
     <div class="cinematech-title${i + 1}">
@@ -270,7 +273,7 @@ const generatePdfContentCinematechPage5 = data => {
 const generateContentPage5 = data => {
   const headerPage5 = `<div class="header">
   <div class="cinematech-logo">
-    <img class="logo" src="https://costarides.idoagency.com/images/cinematech-email-logo1618.png" alt="qcab"
+    <img class="logo" src="${data.companyLogo}" alt="qcab"
       width="85" height="130" />
   </div>
   <div class="cinematech-title">
@@ -317,7 +320,7 @@ const generatePdfContentCinematechPage6 = data => {
 const generateContentPage6 = data => {
   const headerPage6 = `<div class="header">
   <div class="cinematech-logo">
-    <img class="logo" src="https://costarides.idoagency.com/images/cinematech-email-logo1618.png" alt="qcab"
+    <img class="logo" src="${data.companyLogo}" alt="qcab"
       width="85" height="130" />
   </div>
   <div class="cinematech-title">
@@ -347,40 +350,40 @@ const generateContentPage6 = data => {
         </ul>
       </div>
       <div class="page6-first-column-second-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="380"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="380"
           height="220" />
       </div>
       <div class="page6-first-column-third-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="380"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="380"
           height="220" />
       </div>
 
     </div>
     <div class="page6-second-column">
       <div class="page6-second-column-first-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="380"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="380"
           height="220" />
       </div>
       <div class="page6-second-column-second-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="380"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="380"
           height="220" />
       </div>
       <div class="page6-second-column-third-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="380"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="380"
           height="220" />
       </div>
     </div>
     <div class="page6-third-column">
       <div class="page6-third-column-first-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="380"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="380"
           height="220" />
       </div>
       <div class="page6-third-column-second-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="380"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="380"
           height="220" />
       </div>
       <div class="page6-third-column-third-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="380"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="380"
           height="220" />
       </div>
     </div>
@@ -404,7 +407,7 @@ const generatePdfContentCinematechPage7 = data => {
 const generateContentPage7 = data => {
   const headerPage7 = `<div class="header">
   <div class="cinematech-logo">
-    <img class="logo" src="https://costarides.idoagency.com/images/cinematech-email-logo1618.png" alt="qcab"
+    <img class="logo" src="${data.companyLogo}" alt="qcab"
       width="85" height="130" />
   </div>
   <div class="cinematech-title">
@@ -432,17 +435,17 @@ const generateContentPage7 = data => {
           treatment.</p>
       </div>
       <div class="page7-first-column-second-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="380"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="380"
           height="220" />
       </div>
     </div>
     <div class="page7-second-column">
       <div class="page7-second-column-first-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="380"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="380"
           height="220" />
       </div>
       <div class="page7-second-column-second-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="380"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="380"
           height="220" />
       </div>
     </div>
@@ -464,7 +467,7 @@ const generatePdfContentCinematechPage8 = data => {
 const generateContentPage8 = data => {
   const headerPage8 = `<div class="header">
   <div class="cinematech-logo">
-    <img class="logo" src="https://costarides.idoagency.com/images/cinematech-email-logo1618.png" alt="qcab"
+    <img class="logo" src="${data.companyLogo}" alt="qcab"
       width="85" height="130" />
   </div>
   <div class="cinematech-title">
@@ -493,13 +496,13 @@ const generateContentPage8 = data => {
         </ul>
       </div>
       <div class="page8-first-column-second-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="420"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="420"
           height="370" />
       </div>
     </div>
     <div class="page8-second-column">
       <div class="page8-second-column-first-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="420"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="420"
           height="370" />
       </div>
       <div class="page8-second-column-second-item">
@@ -541,7 +544,7 @@ const generatePdfContentCinematechPage9 = data => {
 const generateContentPage9 = data => {
   const headerPage9 = `<div class="header">
   <div class="cinematech-logo">
-    <img class="logo" src="https://costarides.idoagency.com/images/cinematech-email-logo1618.png" alt="qcab"
+    <img class="logo" src="${data.companyLogo}" alt="qcab"
       width="85" height="130" />
   </div>
   <div class="cinematech-title">
@@ -567,17 +570,17 @@ const generateContentPage9 = data => {
         </ul>
       </div>
       <div class="page9-first-column-second-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="420"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="420"
           height="400" />
       </div>
     </div>
     <div class="page9-second-column">
       <div class="page9-second-column-first-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="420"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="420"
           height="400" />
       </div>
       <div class="page9-second-column-second-item">
-        <img class="logo" src="https://costarides.idoagency.com/images/no-image.png" alt="qcab" width="420"
+        <img class="logo" src="${data.noImage}" alt="qcab" width="420"
           height="400" />
       </div>
     </div>
@@ -599,7 +602,7 @@ const generatePdfContentCinematechPage10 = data => {
 const generateContentPage10 = data => {
   const headerPage10 = `<div class="header">
   <div class="cinematech-logo">
-    <img class="logo" src="https://costarides.idoagency.com/images/cinematech-email-logo1618.png" alt="qcab"
+    <img class="logo" src="${data.companyLogo}" alt="qcab"
       width="270" height="430" />
   </div>
   <div class="cinematech-title">

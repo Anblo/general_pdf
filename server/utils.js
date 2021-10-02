@@ -1,22 +1,8 @@
 import puppeteer from 'puppeteer';
 import axios from 'axios';
-import FormData from 'form-data';
 
-// import {
-//   PDF_PROPERTIES_MAP,
-//   PDF_TABLE_MAP,
-//   POSTMARK_TOKEN,
-//   THREEKIT_AUTH_TOKEN,
-//   THREEKIT_ORG_ID,
-//   THREEKIT_ASSET_ID,
-//   THREEKIT_ENV,
-// } from './constants.js';
 
-import {
-  THREEKIT_CONFIG
-} from '../constants.js';
-
-// const fromEmail='example@email.com';
+const fromEmail='ivan@source360group.com';
 const templateId = 24962645;
 const attachmentName = 'Cinematech.pdf';
 // const postmarkToken = 'postmark-api-token';
@@ -72,10 +58,7 @@ export const htmlToPdf = htmlContent => {
 
       const byteArray = await page.pdf({
         format: 'A4',
-        printBackground: true,
-        // displayHeaderFooter: true,
-        // headerTemplate:'',
-        // footerTemplate:`<h1>Page <span class="pageNumber"></span> of <span class="totalPages"></span></h1>`,
+        printBackground: true,        
         marginTop: '80px',
         marginBottom: '80px'
       });
@@ -93,9 +76,8 @@ export const sendPostmarkRequest = async (data, pdf) => {
   return new Promise(async (resolve, reject) => {
     const { firstName, lastName, email } = data;
     const postmarkData = {
-      TemplateId: templateId,
-      From: 'ivan@source360group.com',
-      // To: 'test@blackhole.postmarkapp.com',
+      TemplateId: templateId,      
+      From: fromEmail,
       To: email,
       TemplateModel: {
         'firstName': firstName,
@@ -123,81 +105,6 @@ export const sendPostmarkRequest = async (data, pdf) => {
       return reject(err);
     }
     return resolve();
-  });
-};
-
-export const savePdf = pdfBuffer => {
-  return new Promise(async (resolve, reject) => {
-    const data = new FormData();
-    data.append('orgId', THREEKIT_ORG_ID);
-    data.append('file', pdfBuffer, { filename: 'estimate.pdf' });
-    // if (options?.sync) data.append('sync', 'true');
-    try {
-      const response = await axios({
-        method: 'post',
-        url: `${THREEKIT_ENV}/api/files`,
-        headers: {
-          'content-type': `multipart/form-data; boundary=${data._boundary}`,
-          authorization: `Bearer ${THREEKIT_AUTH_TOKEN}`,
-        },
-        maxContentLength: Infinity,
-        maxBodyLength: Infinity,
-        data,
-      });
-      resolve(`${THREEKIT_ENV}/api/files/${response.data.files[0].id}/content`);
-    } catch (err) {
-      console.log('error saving pdf: ', err);
-      reject(err);
-    }
-  });
-};
-
-export const saveOrderToThreekit = async (
-  userData,
-  configuration,
-  storeName
-) => {
-  const formData = new FormData();
-  formData.append('productId', THREEKIT_ASSET_ID);
-  formData.append('productVersion', 'v1.0');
-  formData.append(
-    'variant',
-    typeof configuration === 'string'
-      ? configuration
-      : JSON.stringify(configuration)
-  );
-
-  const { data: savedConfiguration } = await axios({
-    method: 'post',
-    url: `${THREEKIT_ENV}/api/configurations?bearer_token=${THREEKIT_AUTH_TOKEN}`,
-    data: formData,
-    headers: formData.getHeaders(),
-  });
-
-  const data = {
-    platform: {
-      platform: 'QCab Store',
-      storeName,
-    },
-    metadata: {
-      ...userData,
-    },
-    items: [
-      {
-        id: savedConfiguration.id,
-        count: 1,
-      },
-    ],
-    derivative: {},
-  };
-
-  return axios({
-    url: `${THREEKIT_ENV}/api/orders?bearer_token=${THREEKIT_AUTH_TOKEN}`,
-    method: 'post',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: data,
   });
 };
 
